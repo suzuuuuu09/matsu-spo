@@ -1,24 +1,26 @@
 <template>
-  <ClientOnly>
-    <div id="map" class="h-screen w-screen"></div>
-  </ClientOnly>
+  <div w="screen" h="screen">
+    <l-map ref="map" v-model:zoom="zoom" :use-global-leaflet="false" :center="center">
+      <l-tile-layer
+        :url="url"
+        :attribution="attribution"
+        layer-type="base"
+        name="OpenStreetMap"
+      ></l-tile-layer>
+    </l-map>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+// @ts-ignore
+import "leaflet/dist/leaflet.css";
+import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 
-onMounted(async () => {
-  const { default: L } = await import('leaflet')
-  await import('leaflet/dist/leaflet.css')
+const props = defineProps<{
+  url: string
+  attribution: string
+}>()
 
-  const map = L.map('map').setView([35.6895, 139.6917], 13) // 東京の座標
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map)
-
-  L.marker([35.6895, 139.6917]).addTo(map)
-    .bindPopup('東京')
-    .openPopup()
-})
+const zoom = ref(15)
+const center = ref([35.6769883, 139.7588499])
 </script>
