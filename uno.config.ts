@@ -8,6 +8,7 @@ import {
 import { generateStyles } from './app/lib/unocss'
 
 const globalStyles = {
+  "html, body": "m-0 p-0",
   "body": "bg-red-500"
   // "body": "text-main-text font-base bg-background",
 }
@@ -25,7 +26,7 @@ export default defineConfig({
     transformerDirectives(),
   ],
   content: {
-    filesystem: ['src/**/*.{html,js,ts,jsx,tsx,svelte,vue}']
+    filesystem: ['app/**/*.{html,js,ts,jsx,tsx,svelte,vue}']
   },
   theme: {
   },
