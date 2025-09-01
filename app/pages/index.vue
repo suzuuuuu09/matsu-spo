@@ -1,26 +1,10 @@
 <template>
-  <div>
-    <p class="">Hello world!🏮</p>
-    <ClientOnly>
-      <div id="map" class="h-96 w-full"></div>
-    </ClientOnly>
-  </div>
+  <Map
+    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
+    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  />
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
-
-onMounted(() => {
-  const map = L.map('map').setView([35.6895, 139.6917], 13) // 東京の座標
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map)
-
-  L.marker([35.6895, 139.6917]).addTo(map)
-    .bindPopup('東京')
-    .openPopup()
-})
+import Map from '~/components/Map.vue'
 </script>
