@@ -1,6 +1,12 @@
 <template>
   <div w="screen" h="screen">
-    <l-map ref="map" v-model:zoom="zoom" :use-global-leaflet="false" :center="center">
+    <l-map
+      ref="map"
+      v-model:zoom="zoom"
+      :use-global-leaflet="false"
+      :center="center"
+      :options="{zoomControl: false}"
+    >
       <l-tile-layer
         :url="url"
         :attribution="attribution"
