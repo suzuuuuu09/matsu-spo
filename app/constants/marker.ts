@@ -5,7 +5,7 @@ export type DateInfo = Dayjs | { start: Dayjs; end: Dayjs } | Dayjs[];
 
 export interface MarkerItem {
   name: string;  // 祭りの名前
-  icon: "fireflower" | "kimono" | "lantern" | "drum"; // マップに表示するアイコン
+  icon: "fireworks" | "kimono" | "lantern" | "drum" | "tanabata"; // マップに表示するアイコン
   place: string;  // 開催場所
   latLng: [number, number];  // マップピンの座標
   imageUrl?: string;  // 画像URL
@@ -18,7 +18,7 @@ export const MARKER_ITEMS: MarkerItem[] = [
   // 愛知県
   {
     name: "海の日名古屋みなと祭",
-    icon: "fireflower",
+    icon: "fireworks",
     place: "名古屋港ガーデンふ頭 一帯",
     latLng: [35.0919, 136.8772],
     imageUrl: "https://aichinow.pref.aichi.jp/upload/spot_images/9dd89da1b6c9c3ab650904062104814f.jpg",
@@ -102,7 +102,7 @@ export const MARKER_ITEMS: MarkerItem[] = [
   },
   {
     name: "市制70周年記念こまき令和夏まつり",
-    icon: "fireflower",
+    icon: "fireworks",
     place: "小牧駅周辺道路",
     latLng: [35.2891, 136.9284],
     imageUrl: "https://aichinow.pref.aichi.jp/upload/spot_images/231c3d93ee8959ed368b04b65925a43c.jpg",
@@ -155,7 +155,7 @@ export const MARKER_ITEMS: MarkerItem[] = [
   },
   {
     name: "にっしん夢まつり",
-    icon: "fireflower",
+    icon: "fireworks",
     place: "日進市役所駐車場周辺",
     latLng: [35.13206742040239, 137.03947158650496],
     imageUrl: "https://aichinow.pref.aichi.jp/upload/feature_languages/8679f92fe9fb1af299653cc8864c48e1.jpg",
@@ -166,8 +166,20 @@ export const MARKER_ITEMS: MarkerItem[] = [
     date: dayjs("2025-09-14")
   },
   {
+    name: "中村公園夏まつり",
+    icon: "fireworks",
+    place: "中村公園",
+    latLng: [35.175083773745875, 136.85423755898196],
+    imageUrl: "https://aichinow.pref.aichi.jp/upload/spot_images/c171e78a2ce088d83e7d20fe23f2a83d.jpg",
+    referenceUrl: "https://aichinow.pref.aichi.jp/spots/detail/1587/",
+    description: `
+      恒例の納涼盆おどり大会を始め、写生会「中村公園と夏まつりを描く会」や書道展、毎年大盛り上がりのステージイベントに出店、納涼花火鑑賞会などもあり、中村公園が大変賑わう3日間です♪
+    `,
+    date: { start: dayjs("2025-07-23"), end: dayjs("2025-07-25") }
+  },
+  {
     name: "一宮七夕まつり",
-    icon: "lantern",
+    icon: "tanabata",
     place: "真清田神社周辺",
     latLng: [35.30730935041803, 136.80196844524463],
     imageUrl: "https://aichinow.pref.aichi.jp/upload/spot_images/2ee519d62beba2cd446fec4ec84c58f7.jpg",
@@ -181,7 +193,7 @@ export const MARKER_ITEMS: MarkerItem[] = [
   // 愛知県以外の祭り
   {
     name: "仙台七夕まつり",
-    icon: "lantern",
+    icon: "tanabata",
     place: "仙台市中心部および周辺地域商店街",
     latLng: [38.26027834556364, 140.88206097022285],
     imageUrl: "https://www.sentabi.jp/wp-content/themes/sentabi/assets/images/feature/tanabata/img04.jpg",
@@ -191,5 +203,43 @@ export const MARKER_ITEMS: MarkerItem[] = [
       また、飾りの内容は当日まで企業秘密となっており、8月6日の朝8時頃から飾り付けが行われ、その豪華さを競い合います。
     `,
     date: { start: dayjs("2025-08-06"), end: dayjs("2025-08-08") }
-  }
+  },
+  {
+    name: "尾張津島天王祭",
+    icon: "lantern",
+    place: "津島神社・天王川公園",
+    latLng: [35.17358543715172, 136.7209477164036],
+    imageUrl: "https://aichinow.pref.aichi.jp/upload/spot_images/4a1e36461ff299c4ab92605434749722.jpg",
+    referenceUrl: "https://aichinow.pref.aichi.jp/spots/detail/320/",
+    description: `
+      津島神社の祭礼として600年近くの歴史があり、日本三大川祭りのひとつとして、全国の数ある夏祭りの中でも最も華麗なものと言われています。
+      尾張津島天王祭の車楽舟行事は昭和55年に国の無形民俗文化財に指定されており、ユネスコの無形文化遺産に登録されました。
+    `,
+    date: [dayjs("2025-07-26"), dayjs("2025-07-27")]
+  },
+  {
+    name: "刈谷万燈祭(秋葉社の祭礼)",
+    icon: "lantern",
+    place: "刈谷市中心部、秋葉社周辺",
+    latLng: [34.98725294761389, 136.9927510894054],
+    imageUrl: "https://aichinow.pref.aichi.jp/upload/spot_images/c52650014669e1ed0f3b0d24da58772b.jpg",
+    referenceUrl: "https://aichinow.pref.aichi.jp/spots/detail/93/",
+    description: `
+      愛知県の無形民俗文化財に指定されている「万燈祭(まんどまつり)」は、刈谷市銀座にある秋葉社の祭礼で、五穀豊穣・火難防除・町内安全を祈願する祭りで、「天下の奇祭」と呼ばれる刈谷市を代表する夏祭りです。
+      市内氏子7町がそれぞれ数か月かけて制作した高さ約5m、重さ約60㎏の万燈を、若衆が1人で担ぎ勇壮に舞う姿をぜひご覧ください
+    `,
+    date: [dayjs("2025-07-26"), dayjs("2025-07-27")]
+  },
+  // {
+  //   name: "円頓寺七夕まつり",
+  //   icon: "",
+  //   place: "",
+  //   latLng: [0, 0],
+  //   imageUrl: "",
+  //   referenceUrl: "",
+  //   description: `
+  //     ここに祭りの説明を入力します。
+  //   `,
+  //   date:
+  // }
 ]
