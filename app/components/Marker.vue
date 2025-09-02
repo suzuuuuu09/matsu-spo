@@ -14,12 +14,19 @@ import { LMarker, LIcon } from '@vue-leaflet/vue-leaflet';
 const props = defineProps<{
   icon: string;
   latLng: [number, number];
+  item?: any; // マーカーのデータ
 }>();
 
-// publicフォルダの画像を参照
+// publicにある画像参照する
 const iconUrl = computed(() => `/img/${props.icon}.png`);
 
+// イベントを親コンポーネントに伝えるためのemit
+const emit = defineEmits<{
+  markerClick: [item: any];
+}>();
+
+// マーカーがクリックされたときの処理
 const onMarkerClick = () => {
-  console.log('Marker clicked!', { icon: props.icon, latLng: props.latLng });
+  emit('markerClick', props.item);
 };
 </script>
