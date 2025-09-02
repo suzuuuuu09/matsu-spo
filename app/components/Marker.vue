@@ -1,15 +1,9 @@
 <template>
-  <l-marker :lat-lng="latLng" @click="onMarkerClick">
-    <l-icon
-      :icon-size="[32, 32]"
-      :icon-url="iconUrl"
-    />
-  </l-marker>
+  <div></div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { LMarker, LIcon } from '@vue-leaflet/vue-leaflet';
+import { computed, onMounted } from 'vue';
 
 const props = defineProps<{
   icon: string;
@@ -29,4 +23,27 @@ const emit = defineEmits<{
 const onMarkerClick = () => {
   emit('markerClick', props.item);
 };
+
+onMounted(async () => {
+  try {
+    // 動的にLeafletを読み込む
+    const L = await import('leaflet');
+    
+    // カスタムアイコンを作成
+    const customIcon = L.default.icon({
+      iconUrl: iconUrl.value,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32]
+    });
+
+    // マーカーを作成（実際の地図への追加は親コンポーネントで行う）
+    const marker = L.default.marker(props.latLng, { icon: customIcon });
+    marker.on('click', onMarkerClick);
+    
+    // 親コンポーネントにマーカーを渡す（必要に応じて実装）
+  } catch (error) {
+    console.error('Failed to load Leaflet for marker:', error);
+  }
+});
 </script>
