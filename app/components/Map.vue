@@ -7,14 +7,17 @@
       :center="center"
       :options="{zoomControl: false}"
     >
-      <l-tile-layer
-        :url="url"
-        :attribution="attribution"
-        layer-type="base"
-        name="OpenStreetMap"
-      ></l-tile-layer>
+      <TileLayer 
+        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+      />
 
-      <Marker icon="lantern" :lat-lng="[35.6595, 139.7748]" />
+      <Marker
+        v-for="(item, index) in markerItems"
+        :key="index"
+        :icon="item.icon"
+        :lat-lng="item.latLng"
+      />
     </l-map>
   </div>
 </template>
@@ -22,15 +25,14 @@
 <script setup lang="ts">
 // @ts-ignore
 import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
+import { LMap } from "@vue-leaflet/vue-leaflet";
 import Marker from "@/components/Marker.vue";
+import TileLayer from "@/components/TileLayer.vue";
+import { MARKER_ITEMS } from "@/constants/marker";
 
-const props = defineProps<{
-  url: string
-  attribution: string
-}>();
-
-const iconUrl = new URL(`@/assets/img/lantern.png`, import.meta.url).href;
+// 開いた時のズームレベル
 const zoom = ref(15);
-const center = ref<[number, number]>([35.6769883, 139.7588499]);
+// 開いたときに表示する座標
+const center = ref<[number, number]>([35.18490, 136.89968]);
+const markerItems = MARKER_ITEMS;
 </script>

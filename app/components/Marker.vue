@@ -1,5 +1,5 @@
 <template>
-  <l-marker :lat-lng="latLng">
+  <l-marker :lat-lng="latLng" @click="onMarkerClick">
     <l-icon
       :icon-size="[32, 32]"
       :icon-url="iconUrl"
@@ -18,4 +18,8 @@ const props = defineProps<{
 
 // publicフォルダの画像を参照
 const iconUrl = computed(() => `/img/${props.icon}.png`);
+
+const onMarkerClick = () => {
+  console.log('Marker clicked!', { icon: props.icon, latLng: props.latLng });
+};
 </script>
