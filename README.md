@@ -18,8 +18,7 @@
 - **フレームワーク**: Nuxt.js 4
 - **言語**: TypeScript
 - **スタイリング**: UnoCSS
-- **UIフレームワーク**: NuxtUI
-- **マップ**: Google Maps API または Leaflet
+- **マップ**: Leaflet
 
 ## セットアップ
 
