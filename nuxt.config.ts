@@ -11,10 +11,8 @@ export default defineNuxtConfig({
     },
     rollupConfig: {
       external: [
-        'leaflet/dist/images/marker-icon.png',
-        'leaflet/dist/images/marker-icon-2x.png', 
-        'leaflet/dist/images/marker-shadow.png',
-        /^leaflet\/dist\/images\//
+        /^leaflet/,
+        /@vue-leaflet/
       ]
     }
   },
@@ -24,18 +22,7 @@ export default defineNuxtConfig({
       global: 'globalThis',
     },
     optimizeDeps: {
-      include: ['leaflet'],
-      exclude: ['leaflet/dist/images']
-    },
-    build: {
-      rollupOptions: {
-        external: [
-          'leaflet/dist/images/marker-icon.png',
-          'leaflet/dist/images/marker-icon-2x.png',
-          'leaflet/dist/images/marker-shadow.png',
-          /^leaflet\/dist\/images\//
-        ]
-      }
+      exclude: ['leaflet', '@vue-leaflet/vue-leaflet']
     }
   }
 })
