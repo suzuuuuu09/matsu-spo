@@ -54,17 +54,44 @@
             p="x-2 y-1"
             text="gradient-100 sm"
             gap="1"
-            class="inline-flex items-center bg-gradient-100/10 rounded">
-            <div class="i-mdi-map-marker flex-shrink-0"></div>
-            <div class="whitespace-normal break-words">{{ selectedMarker.place }}</div>
+            items="center"
+            bg="gradient-100/10"
+            class="inline-flex rounded"
+          >
+            <div flex="shrink-0" class="i-mdi-map-marker"></div>
+            <div whitespace="normal" break-words="~">{{ selectedMarker.place }}</div>
           </span>
         </div>
 
         <!-- 祭りの日付 -->
         <div m="b-3">
-          <span class="inline-flex items-center gap-1 bg-gradient-300/10 text-gradient-300 px-2 py-1 rounded text-sm">
-            <div class="i-mdi-calendar flex-shrink-0"></div>
-            <div class="whitespace-pre-line break-words">{{ formattedDate }}</div>
+          <span
+            items="center"
+            gap="1"
+            bg="gradient-300/10"
+            text="gradient-300 sm"
+            p="x-2 y-1"
+            inline-flex="~"
+            rounded="0.25rem"
+          >
+            <div flex="shrink-0" class="i-mdi-calendar"></div>
+            <div whitespace="pre-line" break-words="~">{{ formattedDate }}</div>
+          </span>
+        </div>
+
+        <!-- アクセス -->
+        <div m="b-3">
+          <span
+            items="center"
+            gap="1"
+            bg="gradient-700/10"
+            text="gradient-700 sm"
+            p="x-2 y-1"
+            inline-flex="~"
+            rounded="0.25rem"
+          >
+            <div flex="shrink-0" class="i-mdi-car"></div>
+            <div whitespace="normal" break-words="~">{{ selectedMarker.access }}</div>
           </span>
         </div>
 
@@ -78,7 +105,7 @@
             target="_blank"
             rel="noopener noreferrer"
             p="x-3 y-2"
-            bg="primary/80 hover:primary"
+            bg="primary hover:primary/80"
             inline="flex"
             items="center"
             gap="2"

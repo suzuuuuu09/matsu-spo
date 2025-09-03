@@ -43,7 +43,7 @@ onMounted(async () => {
         // マーカーを追加
         markerItems.forEach((item) => {
           const customIcon = L.default.icon({
-            iconUrl: `/img/${item.icon}.png`,
+            iconUrl: `/img/icon/${item.icon}.svg`,
             iconSize: [32, 32],
             iconAnchor: [16, 32],
             popupAnchor: [0, -32]
@@ -60,3 +60,4 @@ onMounted(async () => {
   }, 1000);
 });
 </script>
+

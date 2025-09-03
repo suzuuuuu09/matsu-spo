@@ -12,7 +12,7 @@ const props = defineProps<{
 }>();
 
 // publicにある画像参照する
-const iconUrl = computed(() => `/img/${props.icon}.png`);
+const iconUrl = computed(() => `/img/icon/${props.icon}.svg`);
 
 // イベントを親コンポーネントに伝えるためのemit
 const emit = defineEmits<{
