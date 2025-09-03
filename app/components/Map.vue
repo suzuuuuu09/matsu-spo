@@ -5,6 +5,7 @@
       :center="center"
       :use-global-leaflet="false"
       style="height: 100vh; width: 100%;"
+      :options="{ zoomControl: false }"
     >
       <LTileLayer
         url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
