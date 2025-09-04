@@ -37,7 +37,7 @@
         <!-- 祭りの写真 -->
         <nuxt-img 
           :src="selectedMarker.imageUrl"
-          class="mb-4 rounded-lg shadow-md max-w-70 flex justify-center mx-auto"
+          class="mb-4 rounded-lg shadow-md max-w-full h-auto flex justify-center mx-auto"
         />
         
         <!-- 祭りの名前 -->
