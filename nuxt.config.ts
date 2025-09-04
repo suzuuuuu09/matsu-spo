@@ -1,5 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'まつすぽっ！',
+      meta: [
+        { name: 'description', content: '「まつすぽっ！」は祭りをサポートするアプリです。' },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
+    }
+  },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: ['@unocss/nuxt', '@nuxt/image'],
