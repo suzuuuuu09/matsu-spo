@@ -1,16 +1,12 @@
 <template>
   <a href="/map">
-    <div class="h-screen flex items-center justify-center">
+    <div class="h-screen flex items-center justify-center px-4">
       <nuxt-img
         src="/img/logo.png"
         quality="100"
-        sizes="md:100% lg:650px"
-        class="inline-block"
+        alt="サイトロゴ"
+        class="inline-block w-11/12 max-w-[650px] h-auto object-contain"
       />
     </div>
   </a>
 </template>
-
-<script setup lang="ts">
-
-</script>
